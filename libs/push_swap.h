@@ -13,6 +13,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+#include <stdio.h>
 
 typedef struct s_memory
 {
@@ -35,5 +36,8 @@ void				clean_exit(t_memory **memory, int status);
 int					ft_isdigit(char c);
 int					ft_ispace(char c);
 char				**ft_split(char *str, char sep, t_memory **memory);
+int					init_stack(t_stack **stack , char  **av,  int ac, t_memory **memory);
+int					ft_atoi(char *str, t_memory **memory);
+int check_dup(t_stack  *stack, int content);
 
 #endif

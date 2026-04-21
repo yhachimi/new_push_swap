@@ -49,3 +49,14 @@ int	check_args(char **args)
 	}
 	return (0);
 }
+
+int check_dup(t_stack  *stack, int content)
+{
+	while (stack != NULL)
+	{
+		if (stack->a == content)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}

@@ -28,11 +28,19 @@ static int	check_data(char **argv, int size, t_memory **memory)
 int	main(int argc, char **argv)
 {
 	t_memory	*memory;
+	t_stack 	*main_stack;
 
 	memory = NULL;
+	main_stack = NULL;
 	if (argc < 2)
 		return (write(1, "Error", 6), 1);
 	if (check_data(argv, argc, &memory))
 		clean_exit(&memory, 1);
+	init_stack(&main_stack, argv, argc,  &memory);
+	while (main_stack)
+	{
+		printf("%d\n", main_stack->a);
+		main_stack = main_stack->next;
+	}
 	heap_free(&memory);
 }
