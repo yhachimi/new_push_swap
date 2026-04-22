@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "../libs/push_swap.h"
+#include <stdio.h>
 
 static int	check_data(char **argv, int size, t_memory **memory)
 {
@@ -37,10 +38,14 @@ int	main(int argc, char **argv)
 	if (check_data(argv, argc, &memory))
 		clean_exit(&memory, 1);
 	init_stack(&main_stack, argv, argc,  &memory);
+	if (is_sorted(main_stack))
+		clean_exit(&memory, 0);
+	rra(&main_stack);
 	while (main_stack)
 	{
-		printf("%d\n", main_stack->a);
+		printf("stack: %d\n", main_stack->a);
 		main_stack = main_stack->next;
 	}
+	//push_swap(main_stack);
 	heap_free(&memory);
 }

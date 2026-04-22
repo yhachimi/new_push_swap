@@ -1,6 +1,6 @@
 CFLAGS= -Wall -Wextra -Werror -g
 NAME =  push_swap
-SRC= src/main.c src/garbage_colector.c src/push_swap.c src/parsing_part.c src/error_exit.c src/ft_strlen.c src/split.c src/init_stack.c
+SRC= src/main.c src/garbage_colector.c src/push_swap.c src/parsing_part.c src/error_exit.c src/ft_strlen.c src/split.c src/init_stack.c src/stack_size.c src/instractions.c
 
 CC =  cc
 

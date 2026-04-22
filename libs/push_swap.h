@@ -39,5 +39,18 @@ char				**ft_split(char *str, char sep, t_memory **memory);
 int					init_stack(t_stack **stack , char  **av,  int ac, t_memory **memory);
 int					ft_atoi(char *str, t_memory **memory);
 int check_dup(t_stack  *stack, int content);
+int is_sorted(t_stack  *stack);
+int		stack_size(t_stack *stack);
+void push_swap(t_stack *stack);
 
+//instractions
+void	sa(t_stack **stack);
+void sb(t_stack **stack);
+void ra(t_stack **stack);
+void rb(t_stack **stack);
+void rr(t_stack **stack_a, t_stack **stack_b);
+void ss(t_stack **stack_a, t_stack **stack_b);
+void rra(t_stack **stack);
+void rrb(t_stack **stack);
+void rrr(t_stack **stack_a, t_stack **stack_b);
 #endif
