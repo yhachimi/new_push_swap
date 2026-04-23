@@ -75,6 +75,7 @@ void push_swap(t_stack **stack)
 			get_target_pos(*stack, stack_b);
 			calc_cost_a(stack_b, stack_size(stack_b));
 			calc_cost_b(stack_b, stack_size(stack_b));
+			cheapset = find_cheapset(stack_b);
 		}
 	}
 }

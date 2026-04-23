@@ -15,6 +15,8 @@
 # include <unistd.h>
 #include <stdio.h>
 
+#define ABS(x) (x < 0 ? -x: x)
+
 typedef struct s_memory
 {
 	void			*content;
@@ -64,5 +66,6 @@ void pb(t_stack **stack_a, t_stack **stack_b);
 void get_target_pos(t_stack *stack_a,  t_stack *stack_b);
 void calc_cost_a(t_stack *stack , int size);
 void calc_cost_b(t_stack *stack, int size);
+t_stack *find_cheapset(t_stack *stack);
 
 #endif
