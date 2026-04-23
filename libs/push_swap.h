@@ -24,6 +24,10 @@ typedef struct s_memory
 typedef struct s_stack
 {
 	int				a;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -41,7 +45,7 @@ int					ft_atoi(char *str, t_memory **memory);
 int check_dup(t_stack  *stack, int content);
 int is_sorted(t_stack  *stack);
 int		stack_size(t_stack *stack);
-void push_swap(t_stack *stack);
+void push_swap(t_stack **stack);
 
 //instractions
 void	sa(t_stack **stack);
@@ -53,4 +57,12 @@ void ss(t_stack **stack_a, t_stack **stack_b);
 void rra(t_stack **stack);
 void rrb(t_stack **stack);
 void rrr(t_stack **stack_a, t_stack **stack_b);
+void pa(t_stack **stack_a, t_stack **stack_b);
+void pb(t_stack **stack_a, t_stack **stack_b);
+
+// turk method part
+void get_target_pos(t_stack *stack_a,  t_stack *stack_b);
+void calc_cost_a(t_stack *stack , int size);
+void calc_cost_b(t_stack *stack, int size);
+
 #endif

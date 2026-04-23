@@ -40,12 +40,13 @@ int	main(int argc, char **argv)
 	init_stack(&main_stack, argv, argc,  &memory);
 	if (is_sorted(main_stack))
 		clean_exit(&memory, 0);
-	rra(&main_stack);
+
+	push_swap(&main_stack);
+
 	while (main_stack)
 	{
-		printf("stack: %d\n", main_stack->a);
+		printf("%d\n", main_stack->a);
 		main_stack = main_stack->next;
 	}
-	//push_swap(main_stack);
 	heap_free(&memory);
 }

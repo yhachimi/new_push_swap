@@ -3,13 +3,18 @@
 
 static void	s(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack *first;
+	t_stack *sec;
 
-	if (*stack == NULL)
+
+	if (!stack || !*stack)
 		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	(*stack)->next = tmp;
+	first = *stack;
+	sec = first->next;
+	first->next = sec->next;
+	sec->next = first;
+	*stack = sec;
+	printf("size = %d\n", stack_size(*stack));
 }
 
 void sa(t_stack **stack)
@@ -91,4 +96,24 @@ void rrr(t_stack **stack_a, t_stack **stack_b)
 	reversed_r(stack_a);
 	reversed_r(stack_b);
 	printf("rrr\n");
+}
+
+void pb(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *tmp;
+	tmp =  (*stack_a);
+	*stack_a = (*stack_a)->next;
+	tmp->next  = *stack_b;
+	*stack_b = tmp;
+
+}
+
+void pa(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *tmp;
+	tmp =  (*stack_b);
+	*stack_b = (*stack_b)->next;
+	tmp->next  = *stack_a;
+	*stack_a = tmp;
+
 }
