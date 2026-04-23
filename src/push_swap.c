@@ -39,13 +39,13 @@ void sort_three(t_stack **stack)
 	}
 }
 
-void pos(t_stack **stack)
+void pos(t_stack *stack)
 {
 	int i = 0;
-	while  (*stack)
+	while  (stack)
 	{
-		(*stack)->pos =  i;
-		(*stack) = (*stack)->next;
+		stack->pos =  i;
+		stack = stack->next;
 		i++;
 	}
 }
@@ -70,12 +70,15 @@ void push_swap(t_stack **stack)
 		sort_three(stack);
 		while (stack_b)
 		{
-			pos(stack);
-			pos(&stack_b);
+			pos(*stack);
+			pos(stack_b);
 			get_target_pos(*stack, stack_b);
 			calc_cost_a(stack_b, stack_size(stack_b));
 			calc_cost_b(stack_b, stack_size(stack_b));
 			cheapset = find_cheapset(stack_b);
+			if (!cheapset || !stack_b)
+				break;
+			excut_moves(stack, &stack_b,  cheapset);
 		}
 	}
 }

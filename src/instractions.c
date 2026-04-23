@@ -7,7 +7,7 @@ static void	s(t_stack **stack)
 	t_stack *sec;
 
 
-	if (!stack || !*stack)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	first = *stack;
 	sec = first->next;
@@ -38,8 +38,11 @@ void ss(t_stack **stack_a, t_stack **stack_b)
 
 static void reversed_r(t_stack **stack)
 {
-	t_stack *tmp  = *stack;
+	if (!stack || !*stack || !(*stack)->next)
+		return;
+
 	t_stack *prev ;
+	t_stack *tmp  = *stack;
 
 	while (tmp->next != NULL)
 	{
@@ -52,6 +55,8 @@ static void reversed_r(t_stack **stack)
 }
 static void r(t_stack **stack)
 {
+	if (!stack || !*stack || !(*stack)->next)
+		return;
 	t_stack *first  = (*stack)->next;
 	t_stack *last = *stack;
 
@@ -101,6 +106,8 @@ void rrr(t_stack **stack_a, t_stack **stack_b)
 void pb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *tmp;
+	if (!stack_a || !*stack_a)
+		return;
 	tmp =  (*stack_a);
 	*stack_a = (*stack_a)->next;
 	tmp->next  = *stack_b;
@@ -111,9 +118,10 @@ void pb(t_stack **stack_a, t_stack **stack_b)
 void pa(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *tmp;
+	if (!stack_b || !*stack_b)
+		return;
 	tmp =  (*stack_b);
 	*stack_b = (*stack_b)->next;
 	tmp->next  = *stack_a;
 	*stack_a = tmp;
-
 }

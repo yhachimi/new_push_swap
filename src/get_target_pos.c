@@ -18,20 +18,23 @@ static void get_smallest_tar(t_stack **tar, t_stack *stack_a)
 void get_tar(t_stack **tar, t_stack *stack_a, t_stack *stack_b)
 {
 	int value = 2147483647;
+	t_stack *tmp;
+
+	tmp = stack_a;
 	int content;
 
 	*tar = NULL;
-	while  (stack_a)
+	while  (tmp)
 	{
-		content =  stack_a->a;
+		content =  tmp->a;
 		if (content > stack_b->a && content < value)
 		{
 			value =  content;
-			 *tar =  stack_a;
+			 *tar =  tmp;
 		}
-		stack_a = stack_a->next;
+		tmp = tmp->next;
 	}
-	if (tar == NULL)
+	if (*tar == NULL)
 	{
 		get_smallest_tar(tar, stack_a);
 	}
@@ -39,7 +42,7 @@ void get_tar(t_stack **tar, t_stack *stack_a, t_stack *stack_b)
 
 void get_target_pos(t_stack *stack_a,  t_stack *stack_b)
 {
-	t_stack *tar;
+	t_stack *tar = NULL;
 
 	while (stack_b)
 	{

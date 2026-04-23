@@ -1,14 +1,21 @@
 #include "../libs/push_swap.h"
-
+int ft_abs(int x)
+{
+	if (x < 0)
+		return -x;
+	return (x);
+}
 static int total_cost(t_stack *stack)
 {
-	return (ABS(stack->cost_a) + ABS(stack->cost_b));
+	return (ft_abs(stack->cost_a) + ft_abs(stack->cost_b));
 }
 
 t_stack *find_cheapset(t_stack *stack)
 {
 	t_stack *chep;
 
+	if (!stack)
+		return (NULL);
 	chep  = stack;
 	int smallest_cost  = total_cost(chep);
 	while (stack)
