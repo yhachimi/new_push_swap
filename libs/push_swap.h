@@ -69,5 +69,6 @@ void calc_cost_b(t_stack *stack, int size);
 t_stack *find_cheapset(t_stack *stack);
 void excut_moves(t_stack **stack_a, t_stack **stack_b,  t_stack *chep);
 int ft_abs(int x);
+void final_rotaions(t_stack **stack_a);
 
 #endif

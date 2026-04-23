@@ -42,11 +42,5 @@ int	main(int argc, char **argv)
 		clean_exit(&memory, 0);
 
 	push_swap(&main_stack);
-
-	while (main_stack)
-	{
-		printf("%d\n", main_stack->a);
-		main_stack = main_stack->next;
-	}
 	heap_free(&memory);
 }

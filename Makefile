@@ -1,6 +1,6 @@
 CFLAGS= -Wall -Wextra -Werror -g
 NAME =  push_swap
-SRC= src/calc_costs.c src/error_exit.c src/ft_strlen.c src/garbage_colector.c src/get_target_pos.c src/init_stack.c src/instractions.c src/main.c src/parsing_part.c src/push_swap.c src/split.c src/stack_size.c src/excute_moves.c
+SRC= src/calc_costs.c src/error_exit.c src/ft_strlen.c src/garbage_colector.c src/get_target_pos.c src/init_stack.c src/instractions.c src/main.c src/parsing_part.c src/push_swap.c src/split.c src/stack_size.c src/excute_moves.c src/final_rotaions.c
 CC =  cc
 
 OBJ = $(SRC:.c=.o)

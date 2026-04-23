@@ -61,7 +61,7 @@ void push_swap(t_stack **stack)
 		return (sa(stack));
 	else if (size == 3)
 		(sort_three(stack));
-	else if (size <= 100)
+	else
 	{
 		while (stack_size(*stack) != 3)
 		{
@@ -80,5 +80,7 @@ void push_swap(t_stack **stack)
 				break;
 			excut_moves(stack, &stack_b,  cheapset);
 		}
+		pos(*stack);
+		final_rotaions(stack);
 	}
 }
